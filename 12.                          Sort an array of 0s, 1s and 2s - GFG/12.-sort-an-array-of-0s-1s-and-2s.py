@@ -1,24 +1,21 @@
 #User function Template for python3
 
 class Solution:
-    def sort012(self,a,arr_size):
+    def sort012(self,a,n):
         # code here
-        lo = 0
-    	hi = arr_size - 1
-    	mid = 0
-    	while mid <= hi:
-    		if a[mid] == 0:
-    			a[lo], a[mid] = a[mid], a[lo]
-    			lo = lo + 1
-    			mid = mid + 1
-    		elif a[mid] == 1:
-    			mid = mid + 1
-    		else:
-    			a[mid], a[hi] = a[hi], a[mid]
-    			hi = hi - 1
-
-                
-
+        l=0
+        h=n-1
+        m=0
+        while(m<=h):
+            if(a[m]==0):
+                a[l],a[m]=a[m],a[l]
+                m+=1
+                l+=1
+            elif(a[m]==1):
+                m+=1
+            else:
+                a[m],a[h]=a[h],a[m]
+                h-=1
 
 #{ 
 #  Driver Code Starts
