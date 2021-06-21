@@ -4,7 +4,11 @@ class Solution:
     #You are not allowed to convert string to integer
     def remainderWith7(self, st):
         #Code here
-        return int(st)%7
+        r=0
+        for i in range(len(st)):
+            r = r*10 + (ord(st[i])-ord('0'))
+            r%=7
+        return r
 
 #{ 
 #  Driver Code Starts
