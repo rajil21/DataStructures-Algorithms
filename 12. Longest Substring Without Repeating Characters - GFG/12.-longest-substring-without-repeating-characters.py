@@ -3,18 +3,24 @@
 class Solution:
     def SubsequenceLength(self, s):
         #Codee here
-        l = ''
-        L=[]
-        if(len(s)==''):
+        m = -2**31
+        i,j=0,0
+        if(len(s)==0):
             return 0
-        for i in s:
-            if(i not in l):
-                l+=i
+        d={}
+        for p in "abcdefghijklmnopqrstuvwxyz":
+            d[p]=0
+        while(j<len(s)):
+            if(d[s[j]]!=0):
+                d[s[i]]=0
+                i+=1
             else:
-                L.append(len(l))
-                l=l[l.index(i)+1:]+i
-        L.append(len(l))
-        return max(L)
+                d[s[j]]=1
+                m = max(m,j-i+1)
+                j+=1
+        
+        return m
+            
 
 #{ 
 #  Driver Code Starts
