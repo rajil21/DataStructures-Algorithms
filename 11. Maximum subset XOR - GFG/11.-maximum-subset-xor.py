@@ -4,6 +4,7 @@ class Solution:
     def maxSubarrayXOR(self, arr, n):
         # add code here
         ind=0
+        # GAUSSIAN ELIMINATION 
         for i in range(31,-1,-1):
             ME=-2**31
             MI=ind
