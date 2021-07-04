@@ -38,26 +38,27 @@ class Solution
     Node* pairWiseSwap(struct Node* head) 
     {
         // The task is to complete this method
-        if(head==NULL || head->next==NULL)
+        if(head==NULL || head->next==NULL )
         return head;
-        
-        Node* pre=head;
-        Node* curr= head->next;
-        head = curr;
-    
+        Node* curr;   
+        Node* prev = head; // Saves the previous Node
+        head = prev->next; // Head starts from 2nd number 
+        curr = head;  // saves the current Node
+        // EACH TIME 3 LINKS ARE CHANGED
         while(true){
-            Node* nex = curr->next;
-            curr->next = pre;
-            if(nex==NULL || nex->next==NULL)
-            {
-                pre->next = nex;
+            Node* next = curr->next;  // saves the connection of next link
+            curr->next = prev;   // reverse the connection of current element 
+            if(next==NULL || next->next==NULL){
+                prev->next = next;
                 break;
             }
-            pre->next=nex->next;
-            pre = nex;
-            curr = pre->next;
+            prev->next = next->next; // PAIRING 1st AND 4th ELEMENT
+            // UPDATING curr and prev
+            prev = next;  // 3RD 
+            curr = prev->next;   // 4TH
         }
         return head;
+        
     }
 };
 
