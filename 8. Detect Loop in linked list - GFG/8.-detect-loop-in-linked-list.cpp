@@ -40,6 +40,8 @@ struct Node
     }
 
 */
+#include<unordered_set>
+using namespace std;
 class Solution
 {
     public:
@@ -47,14 +49,25 @@ class Solution
     bool detectLoop(Node* head)
     {
         // your code here
-        Node* slow = head;
-        Node* fast = head;
-        while(slow && fast && fast->next){
-            slow = slow->next;
-            fast = fast->next->next;
-            if(slow==fast) return true;
+        unordered_set <Node*> s;
+
+        Node* temp = head;
+        while(temp!=NULL){
+            if(s.find(temp)!=s.end()){
+                return true;
+            }
+            s.insert(temp);
+            temp = temp->next;
         }
         return false;
+        // Node* slow = head;
+        // Node* fast = head;
+        // while(slow && fast && fast->next){
+        //     slow = slow->next;
+        //     fast = fast->next->next;
+        //     if(slow==fast) return true;
+        // }
+        // return false;
     }
 };
 
