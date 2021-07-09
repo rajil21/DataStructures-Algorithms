@@ -77,11 +77,11 @@ int evaluatePostfix(char* exp)
     struct Stack* stack = createStack(strlen(exp));
     for(int i=0;i<strlen(exp);i++){
         if(isdigit(exp[i]))
-        push(stack,exp[i]);
+        push(stack,exp[i]-'0');
         else{
             char ch = exp[i];
-            int d1 = pop(stack)-'0';
-            int d2 = pop(stack)-'0';
+            int d1 = pop(stack);
+            int d2 = pop(stack);
             int d;
             switch(ch){
                 case '+':d = d1+d2; break;
@@ -89,10 +89,10 @@ int evaluatePostfix(char* exp)
                 case '*':d = d2*d1; break;
                 case '/':d = d2/d1; break;
             }
-            push(stack,d+'0');
+            push(stack,d);
         }
     }
-    return pop(stack)-'0';
+    return pop(stack);
 
     
 }
