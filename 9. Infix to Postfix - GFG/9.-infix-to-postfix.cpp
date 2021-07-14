@@ -16,35 +16,36 @@ class Solution
     else if (c=='+' || c=='-') return 1;
     else return -1;
 }
-    string infixToPostfix(string exp)
+    string infixToPostfix(string infix)
     {
-    // Your code here
-    stack <char> s;
-    string postfix;
-    for(int i=0;exp[i];i++){
-        char c = exp[i];
-        if((c>='a' && c<='z') || (c>='A' && c<='Z')) postfix+=c;
-        else if(c=='(') s.push(c);
-        else if(c==')'){
-            while(s.top()!='('){
-                postfix+=s.top();
+        stack<int> s;
+        string postfix;
+        for(int i=0;infix[i];i++){
+            char c = infix[i];
+            if((c>='a' && c<='z') ||(c>='A' && c<='Z'))
+            postfix+=c;
+            else if(c=='(')
+            s.push(c);
+            else if(c==')'){
+                while(s.top()!='('){
+                    postfix+=s.top();
+                    s.pop();
+                }
                 s.pop();
             }
+            else{
+                while(!s.empty() && pri(c)<=pri(s.top())){
+                    postfix+=s.top();
+                    s.pop();
+                }
+                s.push(c);
+            }
+        }
+        while(!s.empty()){
+            postfix+=s.top();
             s.pop();
         }
-        else{
-            while(!s.empty() && pri(c)<=pri(s.top())){
-                postfix+=s.top();
-                s.pop();
-            }
-            s.push(c);
-        }
-    }
-    while(!s.empty()){
-        postfix+=s.top();
-        s.pop();
-    }
-    return postfix;
+        return postfix;
     }
 };
 
