@@ -13,6 +13,7 @@ class Solution
     vector <int> maxOfMin(int arr[], int n)
     {
         // Your code here
+        
         int left[n],right[n];
         stack<int> s;
         for(int i=0;i<n;i++){
