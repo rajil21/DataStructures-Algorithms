@@ -38,15 +38,14 @@ queue<int> modifyQueue(queue<int> q, int k)
         s.push(q.front());
         q.pop();
     }
-    queue<int> ans;
     while(!s.empty()){
-        ans.push(s.top());
+        q.push(s.top());
         s.pop();
     }
     for(int i=k;i<n;i++){
-        ans.push(q.front());
+        q.push(q.front());
         q.pop();
     }
-    return ans;
+    return q;
     
 }
