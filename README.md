@@ -1,2 +1,2 @@
-# LeetCode
-Collection of LeetCode and GeeksForGeeks questions to ace the coding interview! - Created using [LeetHub](https://github.com/QasimWani/LeetHub).
+# DataStructures and Algorithms 
+Collection of DSA from LeetCode and GeeksforGeeks to ace the coding interviews.
