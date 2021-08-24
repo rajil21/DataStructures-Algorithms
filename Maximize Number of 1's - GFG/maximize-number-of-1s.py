@@ -7,14 +7,16 @@ def findZeroes(arr, n, m) :
     # code here
     i,j,c,ans=0,0,0,0
     while(i<n):
-        if(arr[i]==0):
-            c+=1
-        while(c>m):
+        if(c<=m):
+            if(arr[i]==0):
+                c+=1
+            i+=1
+        else:
             if(arr[j]==0):
                 c-=1
             j+=1
-        ans  =max(ans,i-j+1)
-        i+=1
+        if(c<=m):
+            ans  =max(ans,i-j)
     return ans
 
 #{ 
