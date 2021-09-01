@@ -36,6 +36,6 @@ Complete the function&nbsp;<strong>countWays()</strong>&nbsp;which takes the top
 <strong>Expected Auxiliary Space</strong>: O(1)</span></p>
 
 <p><span style="font-size:18px"><strong>Constraints:</strong><br>
-1 &lt;= n &lt;= 10<sup>5</sup></span></p>
+1 ≤ n ≤ 10<sup>4</sup></span></p>
  <p></p>
             </div>
