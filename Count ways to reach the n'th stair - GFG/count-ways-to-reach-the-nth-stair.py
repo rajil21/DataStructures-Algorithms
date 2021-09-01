@@ -5,24 +5,23 @@ class Solution:
     def countWays(self,n):
         
         # code here
+        M=10**9+7
         if(n==1 or n==2):
             return n
-        dp = [0 for i in range(n)]
-        dp[0] = 1
-        dp[1] = 2
-        M = 10**9 + 7
-        for i in range(2,n):
-            dp[i]=(dp[i-1]+dp[i-2])%M
-        return dp[-1]%M
-        
-        
+        L=[0 for i in range(n+1)]
+        L[1]=1
+        L[2]=2
+        for i in range(3,n+1):
+            L[i]=L[i-1]+L[i-2]
+        return L[n]%M
+
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3
 import atexit
 import io
 import sys
-sys.setrecursionlimit(200000)
+sys.setrecursionlimit(10**6)
 
 # Contributed by : Nagendra Jha
 
